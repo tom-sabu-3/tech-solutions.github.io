@@ -3,105 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Techify - Modern IT Solutions. We provide web development, cloud deployment, and IT support services to grow your business.">
-    <meta name="keywords" content="IT Company, Web Development, Techify, Cloud Services, Software Solutions">
-    <title>Techify | Modern IT Solutions</title>
+    <meta name="description" content="Techify - Enterprise IT Solutions, Cloud Services, and Custom PC Building.">
+    <title>Techify | Enterprise IT & Custom PC Solutions</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- CSS STYLES --- */
+        /* --- CSS VARIABLES --- */
         :root {
-            --primary: #0f172a; /* Deep Navy */
-            --accent: #38bdf8;  /* Cyan/Blue */
-            --text: #e2e8f0;    /* Light Grey */
-            --bg: #020617;      /* Almost Black */
+            --bg-dark: #0b1120;       /* Dark Blue/Black Background */
+            --bg-card: #1e293b;       /* Lighter Card Background */
+            --primary: #3b82f6;       /* Bright Blue */
+            --accent: #06b6d4;        /* Cyan */
+            --text-main: #f8fafc;     /* White/Grey Text */
+            --text-muted: #94a3b8;    /* Muted Text */
+            --gradient: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
         }
 
+        /* --- RESET & TYPOGRAPHY --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
         }
 
-        /* Navigation */
+        h1, h2, h3 {
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
-            background-color: var(--primary);
+            padding: 20px 5%;
+            background-color: rgba(11, 17, 32, 0.95);
             position: sticky;
             top: 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
             z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
         }
 
-        /* New Style for the Logo Image */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .logo-img {
-            height: 40px; /* Adjust this to make the logo bigger or smaller */
+            height: 40px;
             width: auto;
-            display: block;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
         }
 
         .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 0.9rem;
+            color: var(--text-main);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
+        .nav-links a:hover { color: var(--accent); }
 
-        .btn {
-            background-color: var(--accent);
-            color: var(--primary);
+        .cta-btn {
+            background: var(--gradient);
+            color: white;
             padding: 10px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: inline-block;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
         }
 
-        .btn:hover {
+        .cta-btn:hover {
             transform: translateY(-2px);
-            background-color: #7dd3fc;
-            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
         }
 
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
-            height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 100px 5%;
             text-align: center;
-            padding: 0 20px;
-            /* Added a new, more technological background image */
-            background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.95)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
+            background: radial-gradient(circle at top center, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
         }
 
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            line-height: 1.2;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero span {
@@ -110,128 +124,293 @@
 
         .hero p {
             font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 30px;
-            color: #94a3b8;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
         }
 
-        /* Services Section */
-        .services {
-            padding: 100px 5%;
-            background-color: var(--primary);
+        /* --- SERVICES GRID (The Core Update) --- */
+        .services-section {
+            padding: 80px 5%;
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
             margin-bottom: 60px;
-            font-size: 2.2rem;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background-color: var(--bg);
-            padding: 40px 30px;
-            border-radius: 12px;
-            border-top: 3px solid var(--accent);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        .card h3 {
+        .section-header h2 {
+            font-size: 2.5rem;
             margin-bottom: 15px;
-            font-size: 1.4rem;
-            color: var(--text);
         }
-        
-        .card-icon {
-            font-size: 2rem;
+
+        .section-header p {
+            color: var(--text-muted);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
             color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* --- SPECIAL PC BUILDING SECTION --- */
+        .pc-build-section {
+            background: linear-gradient(rgba(11, 17, 32, 0.8), rgba(11, 17, 32, 0.9)), url('https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 100px 5%;
+            margin: 80px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .pc-content {
+            max-width: 600px;
+        }
+
+        .pc-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pc-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .pc-features i { color: var(--accent); }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #020617;
+            padding: 60px 5%;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
             margin-bottom: 20px;
         }
 
-        /* Contact Section */
-        .contact {
-            padding: 100px 5%;
-            text-align: center;
-        }
-        
-        .contact p {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            margin-bottom: 30px;
+        .footer-col ul li {
+            margin-bottom: 10px;
         }
 
-        footer {
-            background-color: var(--primary);
-            text-align: center;
-            padding: 30px;
-            font-size: 0.9rem;
-            color: #94a3b8;
-            border-top: 1px solid #1e293b;
+        .footer-col ul li a {
+            color: var(--text-muted);
         }
 
-        /* Mobile Responsive */
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; } /* Simplified for mobile */
-            nav { padding: 15px 20px; }
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .pc-build-section { flex-direction: column; text-align: center; }
+            .pc-features { text-align: left; margin-top: 30px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#home">
+        <div class="logo-container">
             <img src="logo.png" alt="Techify Logo" class="logo-img">
-        </a>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <span class="logo-text">TECHIFY</span>
         </div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#pc-builds">Custom PCs</a>
+            <a href="#about">About</a>
+        </div>
+        <a href="#contact" class="cta-btn">Get a Quote</a>
     </nav>
 
-    <section class="hero" id="home">
-        <h1>Transform Your Business with <span>Techify</span></h1>
-        <p>We build fast websites, secure cloud systems, and modern IT solutions designed to help your company grow in the digital age.</p>
-        <a href="#contact" class="btn">Get Started</a>
+    <section class="hero">
+        <h1>Enterprise IT Solutions & <br><span>Next-Gen Workstations</span></h1>
+        <p>From full-scale cloud migrations and cybersecurity to custom-built performance PCs. We provide the technology backbone your business needs to grow.</p>
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <a href="#services" class="cta-btn">Explore Services</a>
+            <a href="#contact" style="padding: 10px 25px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; color: white;">Contact Us</a>
+        </div>
     </section>
 
-    <section class="services" id="services">
-        <h2 class="section-title">Our Services</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon">&#128187;</div> <h3>Web Development</h3>
-                <p>Custom websites built with modern technologies like HTML5, CSS3, and React. Fast, responsive, and SEO optimized for maximum visibility.</p>
+    <section class="services-section" id="services">
+        <div class="section-header">
+            <h2>Comprehensive IT Services</h2>
+            <p>End-to-end technology management for modern businesses.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon-box"><i class="fa-solid fa-headset"></i></div>
+                <h3>IT Support & Helpdesk</h3>
+                <p>24/7 Remote and onsite technical support. We handle ticketing, troubleshooting, and keep your systems running smoothly.</p>
             </div>
-            <div class="card">
-                <div class="card-icon">&#9729;&#65039;</div> <h3>Cloud Solutions</h3>
-                <p>Secure hosting, migration, and deployment on AWS, Azure, or Google Cloud. We ensure your data is safe, scalable, and always online.</p>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fa-solid fa-server"></i></div>
+                <h3>Managed IT Services</h3>
+                <p>Full outsourcing of your IT infrastructure. Proactive monitoring, maintenance, and problem resolution.</p>
             </div>
-            <div class="card">
-                <div class="card-icon">&#128736;&#65039;</div> <h3>IT Consultancy</h3>
-                <p>Expert advice to help you navigate complex technology decisions. We help you choose the right software and hardware to reduce costs.</p>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fa-solid fa-cloud"></i></div>
+                <h3>Cloud Solutions</h3>
+                <p>AWS, Azure, and Google Cloud migration. Scalable IaaS and PaaS solutions to improve flexibility.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>Cybersecurity</h3>
+                <p>Advanced threat detection, firewall management, and security compliance to protect your critical data.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fa-solid fa-code"></i></div>
+                <h3>Software Development</h3>
+                <p>Custom software systems and mobile apps tailored to automate your specific business workflows.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3>Web Development</h3>
+                <p>Responsive corporate websites and E-commerce platforms with modern UI/UX design.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fa-solid fa-network-wired"></i></div>
+                <h3>Network Services</h3>
+                <p>LAN/WAN setup, Wi-Fi configuration, and VPN implementation for reliable connectivity.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fa-solid fa-database"></i></div>
+                <h3>Data & Analytics</h3>
+                <p>Disaster recovery, data backup, and business intelligence analytics to keep information safe.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon-box"><i class="fa-solid fa-briefcase"></i></div>
+                <h3>IT Consulting</h3>
+                <p>Strategic planning and digital transformation roadmaps to help you choose the right tech.</p>
+            </div>
+
+             <div class="service-card">
+                <div class="icon-box"><i class="fa-solid fa-comments"></i></div>
+                <h3>Communication</h3>
+                <p>VoIP setup, unified communications, and video conferencing infrastructure for teams.</p>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <h2 class="section-title">Ready to Upgrade?</h2>
-        <p>Let's discuss how we can use technology to solve your business challenges.</p>
-        <a href="mailto:contact@techify.com" class="btn">Contact Us Now</a>
+    <section class="pc-build-section" id="pc-builds">
+        <div class="pc-content">
+            <h2>Custom PC Building</h2>
+            <p style="margin-bottom: 20px; font-size: 1.1rem; color: #cbd5e1;">Whether for high-end gaming, creative 4K video editing, or heavy data processing, we build machines that outperform the competition.</p>
+            
+            <ul class="pc-features">
+                <li><i class="fa-solid fa-microchip"></i> Premium Component Selection</li>
+                <li><i class="fa-solid fa-temperature-arrow-down"></i> Custom Liquid Cooling Solutions</li>
+                <li><i class="fa-solid fa-gauge-high"></i> Overclocking & Stress Testing</li>
+                <li><i class="fa-solid fa-screwdriver-wrench"></i> Lifetime Build Support</li>
+            </ul>
+            
+            <br>
+            <a href="#contact" class="cta-btn">Start Your Build</a>
+        </div>
+        <div class="pc-image">
+            </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Techify Solutions. All Rights Reserved.</p>
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo-container">
+                    <span class="logo-text">TECHIFY</span>
+                </div>
+                <p style="margin-top: 15px; color: #94a3b8;">Empowering businesses with enterprise-grade IT solutions and custom hardware.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Managed IT</a></li>
+                    <li><a href="#">Cloud Solutions</a></li>
+                    <li><a href="#">Cybersecurity</a></li>
+                    <li><a href="#">Custom PCs</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fa-solid fa-envelope"></i> contact@techify.com</li>
+                    <li><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Tech City, Digital Valley</li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); color: #64748b; font-size: 0.9rem;">
+            &copy; 2024 Techify Solutions. All Rights Reserved.
+        </div>
     </footer>
 
 </body>
