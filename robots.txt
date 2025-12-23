@@ -1,1 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://tiny-sundae-a46628.netlify.app/sitemap.xml
 
